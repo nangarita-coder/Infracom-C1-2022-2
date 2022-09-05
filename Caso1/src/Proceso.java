@@ -8,7 +8,7 @@ public class Proceso extends Thread {
 	private Buzon buz1;
 	private Buzon buz2;
 	private String mensaje;
-	private List<String> mensajes;
+
 
 	public Proceso( int id , Buzon buzEntrada, Buzon buzSalida) {
 		// TODO Auto-generated constructor stub
@@ -16,23 +16,28 @@ public class Proceso extends Thread {
 		this.buz1 = buzEntrada;
 		this.buz2 = buzSalida;
 	}
-	
+
 	private void imprimir(String mensaje)
 	{
 		String prot = "El porceso con id "+ id +" recibio el mensaje "+mensaje;
 		System.out.println(prot);
 	}
-	
+
 	private void enviar(String mensaje)
 	{
 		this.buz2.recibirMensaje(mensaje + "T"+ N + M );
 	}
 	@Override
 	public void run() {
-		
-		while (MapReduce.termino()) {
-			type type = (type) en.nextElement();
-			
+
+		while (!MapReduce.termino()||this.buz1.lleno()) {
+			mensaje = this.buz1.enviarMensaje();
+			if(mensaje ==null)
+			{
+				return ;
+			}
+			this.imprimir(mensaje);
+
 		}
 	}
 }
