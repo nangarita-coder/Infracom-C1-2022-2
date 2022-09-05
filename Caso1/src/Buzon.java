@@ -30,9 +30,10 @@ public class Buzon {
 				e.printStackTrace();
 			}
 
-			this.buzon.add(mensaje);
-			notify();
+
 		}
+		this.buzon.add(mensaje);
+		notify();
 	}
 
 	public synchronized String enviarMensaje()
@@ -45,11 +46,13 @@ public class Buzon {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			String mensaje = this.buzon.remove(0);
-			notify();
-			return mensaje;
+
+
 		}
-		
+		String mensaje = this.buzon.remove(0);
+		notify();
+		return mensaje;
+
 	}
 
 }
