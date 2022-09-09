@@ -30,7 +30,7 @@ public class Proceso extends Thread {
 	@Override
 	public void run() {
 
-		while (!MapReduce.termino()||this.buz1.lleno()) {
+		while (this.buz1.lleno()==true) {
 			mensaje = this.buz1.enviarMensaje();
 			if(mensaje ==null)
 			{

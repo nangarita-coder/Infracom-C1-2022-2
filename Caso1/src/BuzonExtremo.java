@@ -1,13 +1,13 @@
 import java.util.List;
 import java.util.LinkedList;
 
-public class Buzon {
+public class BuzonExtremo {
 
 	private List<String> buzon;
 	private int size;
 	private boolean termino;
 
-	public Buzon(int size ) {
+	public BuzonExtremo(int size ) {
 		// TODO Auto-generated constructor stub
 		this.size = size;
 		this.buzon = new LinkedList<String>();
@@ -19,12 +19,6 @@ public class Buzon {
 	{
 		return this.buzon.size()>0;
 	}
-	
-	public synchronized boolean termino()
-	{
-		return termino;
-	}
-	
 
 	public synchronized void recibirMensaje(String mensaje)
 	{
